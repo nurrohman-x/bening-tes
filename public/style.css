@@ -1,6 +1,6 @@
 .chat-box{
     overflow-y: auto;
-    max-height: 50vh;
+    height: 50vh;
 }
 .rtext{
     width: 65%;

@@ -15,7 +15,7 @@
                     </div>
                 </div>
                 <div class="card-header">
-                    <h4 class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">create</h4>
+                    <h4 class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">mulai percakapan</h4>
                 </div>
                 <div class="card-body">
                     <table class="table">
@@ -65,31 +65,40 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Create user</h5>
+                <h5 class="modal-title" id="exampleModalLabel">semua user</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?= base_url('user-store') ?>" method="post">
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputUsername1">Username</label>
-                        <input type="text" name="username" class="form-control" id="exampleInputUsername1">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputUsername11">Password</label>
-                        <input type="password" name="password" class="form-control" id="exampleInputUsername11">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
-                </div>
-            </form>
+            <div class="modal-body">
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Username</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php $i = 1;
+                        foreach ($user as $us) : ?>
+                            <tr>
+                                <th scope="row"><?= $i++ ?></th>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <a href="/user-chat/<?= $us->id; ?>" class="d-flex align-items-center">
+                                            <img src="https://ui-avatars.com/api/?name=<?= $us->username; ?>" alt="" class="rounded-circle" style="width: 25px;">
+                                            <h3 class="m-2" style="font-size: 1rem;"><?= $us->username; ?></h3>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
         </div>
     </div>
 </div>

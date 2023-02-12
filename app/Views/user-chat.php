@@ -47,7 +47,8 @@
 
             $.post('<?= base_url('user-chat'); ?>', {
                 message: message,
-                to_id: <?= $user->id; ?>
+                to_id: <?= $user->id; ?>,
+                conv_id: <?= $id_conv; ?>
             }, function(response) {
                 let decode = JSON.parse(response)
                 $("#message").val('')

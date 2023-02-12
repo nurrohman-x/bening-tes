@@ -12,9 +12,7 @@ class Chat extends Model
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'object';
-    protected $useSoftDeletes   = false;
-    protected $protectFields    = true;
-    protected $allowedFields    = ['from_id', 'to_id', 'message', 'opened'];
+    protected $allowedFields    = ['from_id', 'to_id', 'message', 'opened', 'conversation_id', 'created_at', 'updated_at'];
 
     // Dates
     protected $useTimestamps = false;
