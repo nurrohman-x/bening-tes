@@ -16,7 +16,7 @@
                             <input type="text" name="username" class="form-control" value="<?= $data->username; ?>" id="exampleInputUsername1">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputUsernamew1">Username</label>
+                            <label for="exampleInputUsernamew1">Password</label>
                             <input type="password" name="password" class="form-control" id="exampleInputUsernamew1">
                         </div>
                         <button type="submit" class="btn btn-primary btn-sm">Simpan</button>
