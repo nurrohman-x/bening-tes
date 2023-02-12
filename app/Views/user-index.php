@@ -27,8 +27,8 @@
                                     <td><?= $dt->email; ?></td>
                                     <td>
                                         <a href="user-edit/<?= $dt->id ?>" class="btn btn-warning btn-sm">edit</a>
-                                        <form action="<?= base_url('user-delete/' . $dt->id) ?>" method="post" style="display: inline;">
-                                            <input type="submit" class="btn btn-danger btn-sm">
+                                        <form onclick="return confirm('Yakin ingin hapus ini?')" action="<?= base_url('user-delete/' . $dt->id) ?>" method="post" style="display: inline;">
+                                            <input type="submit" class="btn btn-danger btn-sm" value="Hapus">
                                         </form>
                                     </td>
                                 </tr>
