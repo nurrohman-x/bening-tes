@@ -30,11 +30,16 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/dashboard', 'Home::index');
-$routes->get('/user/(:segment)', 'Home::edit/$1');
 
-$routes->post('user-store', 'Home::store');
-$routes->get('/user-chat/(:segment)', 'Home::user_chat/$1');
+$routes->get('/user-chat/(:num)', 'Home::user_chat/$1');
 $routes->post('/user-chat', 'Home::do_user_chat');
+
+$routes->get('/user-index', 'UserController::index');
+$routes->get('/user-create', 'UserController::create');
+$routes->post('/user-store', 'UserController::store');
+$routes->get('/user-edit/(:num)', 'UserController::edit/$1');
+$routes->post('/user-update/(:num)', 'UserController::update/$1');
+$routes->post('/user-delete/(:num)', 'UserController::destroy/$1');
 
 $routes->get('/', 'AuthController::login');
 $routes->post('/login', 'AuthController::do_login');

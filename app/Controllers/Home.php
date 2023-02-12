@@ -11,8 +11,7 @@ class Home extends BaseController
     protected $modelUser,
         $user,
         $modelConversation,
-        $modelChat,
-        $db;
+        $modelChat;
 
     public function __construct()
     {
@@ -20,7 +19,6 @@ class Home extends BaseController
         $this->modelConversation = new Conversation();
         $this->modelChat = new Chat();
         $this->user = session('user');
-        $this->db = \Config\Database::connect();
     }
 
     public function index()
@@ -106,33 +104,5 @@ class Home extends BaseController
         $this->modelChat->insert($data);
 
         echo json_encode($data);
-    }
-
-    public function store()
-    {
-        $password = $this->request->getPost('password');
-
-        $data = $this->modelUser->insert([
-            'username' => $this->request->getPost('username'),
-            'email' => $this->request->getPost('email'),
-            'password' => password_hash($password, PASSWORD_DEFAULT)
-        ]);
-
-        if ($data) {
-            return redirect()->to('/');
-        } else {
-            echo 'register error';
-        }
-    }
-
-    public function edit($id)
-    {
-        if (empty(session('user'))) {
-            return redirect()->to('/');
-        }
-
-        return view('user-edit', [
-            'data' => $this->modelUser->where(['id' => $id])->first()
-        ]);
     }
 }

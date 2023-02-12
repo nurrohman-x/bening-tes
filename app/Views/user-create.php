@@ -6,18 +6,18 @@
             <div class="card shadow">
                 <h5 class="card-header">edit user</h5>
                 <div class="card-body">
-                    <form action="<?= base_url('user-update/' . $data->id); ?>" method="post">
+                    <form action="<?= base_url('user-store') ?>" method="post">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" name="email" class="form-control" value="<?= $data->email; ?>" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <input type="email" name="email" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputUsername1">Username</label>
-                            <input type="text" name="username" class="form-control" value="<?= $data->username; ?>" id="exampleInputUsername1">
+                            <input type="text" name="username" required class="form-control" id="exampleInputUsername1">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputUsernamew1">Username</label>
-                            <input type="password" name="password" class="form-control" id="exampleInputUsernamew1">
+                            <label for="exampleInputUsername11">Password</label>
+                            <input type="text" name="password" required class="form-control" id="exampleInputUsername11">
                         </div>
                         <button type="submit" class="btn btn-primary btn-sm">Simpan</button>
                     </form>
